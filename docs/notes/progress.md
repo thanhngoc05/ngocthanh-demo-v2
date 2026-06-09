@@ -1,5 +1,77 @@
 # Progress Notes
 
+## 2026-06-09 11:55 Asia/Bangkok
+- Task: Final review against original goals and deployment preparation
+- Status: ready for Git push; deployment blocked by missing Vercel/domain access
+- Changed files:
+  - `README.md`
+  - `docs/deploy/deploy.md`
+  - `docs/qa/checklist.md`
+  - `docs/tasks/backlog.md`
+  - `docs/notes/progress.md`
+  - `src/app/staff/page.js`
+  - `src/app/staff/login/page.js`
+- Original goals reviewed:
+  - Public Vietnamese storefront, header, logo, search, cart, account, category nav, homepage, product listing/search/filter/sort, product detail, cart, checkout demo, customer auth routes: passed.
+  - Staff login route: passed with `/staff/login`.
+  - Full staff portal operations: partial and documented in backlog.
+  - Data/assets: using `data/tech_products_100_demo.json`, brand logo assets, local category SVG product placeholders, and no hotlinked product images.
+  - Technical checks: Next.js App Router, JavaScript only, Tailwind CSS, no TypeScript files, no `9router` dependency, dynamic params fixed, build passes.
+  - Docs: README, QA checklist, backlog, progress notes, and deploy guide updated.
+- Commands run:
+  - `git status --short`
+  - `npm install`
+  - `npm run build`
+- Build result:
+  - Passed on Next.js 16.2.7.
+- Route check result:
+  - 200: `/`, `/search`, `/cart`, `/checkout`, `/checkout/success`, `/login`, `/register`, `/forgot-password`, `/staff/login`, `/staff`, `/danh-muc/dien-thoai`, `/danh-muc/laptop`, `/san-pham/samsung-galaxy-a56-5g-lite-001`
+- Deployment status:
+  - Vercel CLI is not installed, `VERCEL_TOKEN` is missing, and no `.vercel` project link exists.
+  - Deployment was not attempted.
+- Domain status:
+  - No domain/DNS access is available locally.
+  - Domain setup was not attempted.
+- Remaining known issues:
+  - Full staff portal modules remain in backlog.
+  - `npm install` reported 2 moderate vulnerabilities; do not run `npm audit fix --force` without review because it may make breaking dependency changes.
+  - In-app Browser session was unavailable, so route verification used HTTP requests against `http://localhost:3000`.
+
+## 2026-06-09 11:39 Asia/Bangkok
+- Task: Fix dynamic route params, hydration, and product image placeholders
+- Status: done, stopped for review
+- Changed files:
+  - `src/app/danh-muc/[slug]/page.js`
+  - `src/app/san-pham/[slug]/page.js`
+  - `src/app/search/page.js`
+  - `src/app/page.js`
+  - `src/components/SiteShell.js`
+  - `src/components/BrandLogo.js`
+  - `src/components/ProductCard.js`
+  - `src/components/ProductGallery.js`
+  - `src/app/cart/page.js`
+  - `src/lib/product-data.js`
+  - `data/product-image-manifest.json`
+  - `public/assets/products/placeholders/*.svg`
+  - `docs/qa/checklist.md`
+  - `docs/tasks/backlog.md`
+  - `docs/notes/progress.md`
+- What was done:
+  - Updated App Router pages to await async `params` and `searchParams`.
+  - Added mounted-state guards in the public header for cart/auth client state.
+  - Corrected horizontal logo dimensions and added `sizes` to Next/Image `fill` usages.
+  - Added category-specific local SVG product placeholders.
+  - Updated product image fallback logic: SKU manifest image first, then category placeholder, then default SVG.
+  - Added category slug matching so `/danh-muc/dien-thoai` and `/danh-muc/laptop` resolve correctly.
+- Build result:
+  - `npm run build` passed on Next.js 16.2.7.
+- Route check result:
+  - 200: `/`, `/search`, `/cart`, `/checkout`, `/checkout/success`, `/login`, `/register`, `/forgot-password`, `/danh-muc/dien-thoai`, `/danh-muc/laptop`, `/san-pham/samsung-galaxy-a56-5g-lite-001`
+  - 404: `/staff/login`
+- Remaining known issues:
+  - `/staff/login` route is still not implemented.
+  - In-app Browser session was unavailable, so route verification used HTTP requests against the existing dev server at `http://localhost:3000`.
+
 ## 2026-06-09 10:41 Asia/Bangkok
 - Task: Final QA for auth flow and completed routes
 - Status: done

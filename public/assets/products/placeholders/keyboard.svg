@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-label="Keyboard placeholder">
+  <rect width="640" height="640" rx="48" fill="#f8fcff"/>
+  <circle cx="510" cy="150" r="92" fill="#0ea5e9" opacity=".12"/>
+  <rect x="104" y="214" width="432" height="226" rx="30" fill="#0f172a"/>
+  <g fill="#ecfeff">
+    <rect x="142" y="256" width="46" height="34" rx="8"/><rect x="206" y="256" width="46" height="34" rx="8"/><rect x="270" y="256" width="46" height="34" rx="8"/><rect x="334" y="256" width="46" height="34" rx="8"/><rect x="398" y="256" width="46" height="34" rx="8"/><rect x="462" y="256" width="34" height="34" rx="8"/>
+    <rect x="150" y="314" width="46" height="34" rx="8"/><rect x="214" y="314" width="46" height="34" rx="8"/><rect x="278" y="314" width="46" height="34" rx="8"/><rect x="342" y="314" width="46" height="34" rx="8"/><rect x="406" y="314" width="46" height="34" rx="8"/>
+  </g>
+  <rect x="210" y="372" width="220" height="34" rx="10" fill="#22d3ee"/>
+  <rect x="462" y="372" width="42" height="34" rx="10" fill="#f97316"/>
+</svg>

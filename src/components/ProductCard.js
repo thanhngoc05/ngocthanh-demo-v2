@@ -37,6 +37,7 @@ export function ProductCard({ product }) {
             src={product.imageUrl}
             alt={product.imageAlt || product.name}
             fill
+            sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             className="object-cover transition duration-300 group-hover:scale-105"
           />
           {product.discountPercent > 0 ? (

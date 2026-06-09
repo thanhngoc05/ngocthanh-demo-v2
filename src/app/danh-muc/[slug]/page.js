@@ -1,18 +1,21 @@
 import Link from "next/link";
 import { 
   filterAndSortProducts, 
+  getCategoryBySlug,
+  getCategorySlug,
   getProductBrands,
   getProductCategories 
 } from "@/lib/product-data";
 import { ProductGrid } from "@/components/ProductGrid";
 import { FilterSidebar } from "@/components/FilterSidebar";
 
-export default function CategoryPage({ params, searchParams }) {
-  const { slug } = params;
-  const { brand = null, sort = "relevance" } = searchParams;
+export default async function CategoryPage({ params, searchParams }) {
+  const { slug } = await params;
+  const resolvedSearchParams = searchParams ? await searchParams : {};
+  const { brand = null, sort = "relevance" } = resolvedSearchParams;
 
   // Decode the slug to get the category name
-  const categoryName = decodeURIComponent(slug);
+  const categoryName = getCategoryBySlug(slug);
   
   const products = filterAndSortProducts({
     category: categoryName,
@@ -24,9 +27,7 @@ export default function CategoryPage({ params, searchParams }) {
   const allCategories = getProductCategories();
   
   // Check if the category actually exists
-  const categoryExists = allCategories.some(
-    (cat) => cat.toLowerCase() === categoryName.toLowerCase()
-  );
+  const categoryExists = Boolean(categoryName);
 
   if (!categoryExists) {
     return (
@@ -41,9 +42,7 @@ export default function CategoryPage({ params, searchParams }) {
   }
 
   // Find the original category name for display (capitalized)
-  const displayName = allCategories.find(
-    (cat) => cat.toLowerCase() === categoryName.toLowerCase()
-  ) || categoryName;
+  const displayName = allCategories.find((cat) => cat === categoryName) || categoryName;
 
   return (
     <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
@@ -62,8 +61,8 @@ export default function CategoryPage({ params, searchParams }) {
             brands={brands} 
             currentBrand={brand} 
             currentSort={sort} 
-            searchParams={searchParams}
-            basePath={`/danh-muc/${slug}`}
+            searchParams={resolvedSearchParams}
+            basePath={`/danh-muc/${getCategorySlug(displayName)}`}
           />
         </aside>
 

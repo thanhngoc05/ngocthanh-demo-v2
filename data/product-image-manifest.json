@@ -1,9 +1,9 @@
 {
   "_default": {
-    "mainImage": "/assets/products/placeholder/product-placeholder.png",
+    "mainImage": "/assets/products/placeholders/default.svg",
     "gallery": [
-      "/assets/products/placeholder/product-placeholder.png"
+      "/assets/products/placeholders/default.svg"
     ],
-    "alt": "NgocThanh product placeholder"
+    "alt": "NgocThanh default product placeholder"
   }
 }

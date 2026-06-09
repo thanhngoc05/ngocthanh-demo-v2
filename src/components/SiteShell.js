@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { BrandLogo } from "@/components/BrandLogo";
-import { getProductCategories } from "@/lib/product-data";
+import { getCategorySlug, getProductCategories } from "@/lib/product-data";
 import { useCart } from "@/context/CartContext";
 import { useAuth } from "@/context/AuthContext";
 
@@ -42,6 +43,14 @@ export function SiteHeader() {
   const categories = getProductCategories().slice(0, 6);
   const { cartCount } = useCart();
   const { isLoggedIn, user, logout } = useAuth();
+  const [mounted, setMounted] = useState(false);
+  const safeCartCount = mounted ? cartCount : 0;
+  const safeIsLoggedIn = mounted ? isLoggedIn : false;
+  const safeUser = mounted ? user : null;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
@@ -72,26 +81,26 @@ export function SiteHeader() {
         </div>
         <div className="flex items-center gap-2">
           <Link
-            href="/gio-hang"
+            href="/cart"
             className="relative rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-sky-400 hover:text-sky-700"
           >
             Giỏ hàng
-            {cartCount > 0 && (
+            {mounted && safeCartCount > 0 && (
               <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-orange-500 text-[10px] font-bold text-white">
-                {cartCount}
+                {safeCartCount}
               </span>
             )}
           </Link>
-          {isLoggedIn ? (
+          {safeIsLoggedIn ? (
             <div className="flex items-center gap-3">
               <Link 
                 href="/tai-khoan" 
                 className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
               >
                 <div className="flex h-6 w-6 items-center justify-center rounded-full bg-sky-100 text-[10px] font-bold text-sky-600">
-                  {user?.name?.charAt(0).toUpperCase()}
+                  {safeUser?.name?.charAt(0).toUpperCase()}
                 </div>
-                <span>{user?.name}</span>
+                <span>{safeUser?.name}</span>
               </Link>
               <button 
                 onClick={logout}
@@ -116,7 +125,7 @@ export function SiteHeader() {
           {categories.map((category) => (
             <Link
               key={category}
-              href={`/danh-muc/${encodeURIComponent(category.toLowerCase())}`}
+              href={`/danh-muc/${getCategorySlug(category)}`}
               className="whitespace-nowrap rounded-full border border-slate-200 px-4 py-2 font-medium text-slate-700 transition hover:border-sky-300 hover:text-sky-700"
             >
               {category}

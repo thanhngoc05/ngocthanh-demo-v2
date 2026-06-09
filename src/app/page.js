@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ProductCard } from "@/components/ProductCard";
 import {
+  getCategorySlug,
   getAllProducts,
   getProductCategories,
   getProductsByCategory,
@@ -168,7 +169,7 @@ export default function Home() {
           {categories.slice(0, 8).map((category) => (
             <Link
               key={category}
-              href={`/danh-muc/${encodeURIComponent(category.toLowerCase())}`}
+              href={`/danh-muc/${getCategorySlug(category)}`}
               className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-sky-300 hover:shadow-md"
             >
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-100 text-lg font-bold text-sky-700">

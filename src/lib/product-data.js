@@ -1,11 +1,54 @@
 import productImageManifest from "../../data/product-image-manifest.json";
 import productsSeed from "../../data/tech_products_100_demo.json";
 
+const PLACEHOLDER_PATH = "/assets/products/placeholders";
+const DEFAULT_PLACEHOLDER = `${PLACEHOLDER_PATH}/default.svg`;
 const DEFAULT_IMAGE_SET = productImageManifest._default || {
-  mainImage: "/assets/products/placeholder/product-placeholder.png",
-  gallery: ["/assets/products/placeholder/product-placeholder.png"],
+  mainImage: DEFAULT_PLACEHOLDER,
+  gallery: [DEFAULT_PLACEHOLDER],
   alt: "NgocThanh product placeholder",
 };
+
+const CATEGORY_PLACEHOLDERS = {
+  "dien-thoai": "phone.svg",
+  laptop: "laptop.svg",
+  "may-tinh-bang": "tablet.svg",
+  "tai-nghe": "headphone.svg",
+  "cu-sac": "charger.svg",
+  "cap-sac": "cable.svg",
+  "pin-sac-du-phong": "power-bank.svg",
+  chuot: "mouse.svg",
+  "ban-phim": "keyboard.svg",
+  "man-hinh": "monitor.svg",
+  smartwatch: "smartwatch.svg",
+  "loa-bluetooth": "speaker.svg",
+  "o-cung-ssd": "storage.svg",
+  "ram-may-tinh": "storage.svg",
+  "router-wifi": "networking.svg",
+  camera: "camera.svg",
+};
+
+export function getCategorySlug(category) {
+  return String(category || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/g, "d")
+    .replace(/Đ/g, "D")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function getCategoryPlaceholder(category) {
+  const fileName = CATEGORY_PLACEHOLDERS[getCategorySlug(category)] || "default.svg";
+  const mainImage = `${PLACEHOLDER_PATH}/${fileName}`;
+
+  return {
+    mainImage,
+    gallery: [mainImage],
+    alt: `${category || "NgocThanh"} product placeholder`,
+  };
+}
 
 function safeParseJson(value) {
   if (!value || typeof value !== "string") {
@@ -24,16 +67,16 @@ function formatVnd(value) {
   return new Intl.NumberFormat("vi-VN").format(Number(value || 0));
 }
 
-function getImageSetBySku(sku) {
-  if (!sku) {
-    return DEFAULT_IMAGE_SET;
+function getImageSetBySku(sku, category) {
+  if (sku && productImageManifest[sku]) {
+    return productImageManifest[sku];
   }
 
-  return productImageManifest[sku] || DEFAULT_IMAGE_SET;
+  return category ? getCategoryPlaceholder(category) : DEFAULT_IMAGE_SET;
 }
 
 function normalizeProduct(product) {
-  const imageSet = getImageSetBySku(product.sku);
+  const imageSet = getImageSetBySku(product.sku, product.category);
   const specs = safeParseJson(product.specs_json);
 
   return {
@@ -42,6 +85,7 @@ function normalizeProduct(product) {
     name: product.name,
     slug: product.slug,
     category: product.category,
+    categorySlug: getCategorySlug(product.category),
     brand: product.brand,
     priceVnd: Number(product.price_vnd || 0),
     originalPriceVnd: Number(product.original_price_vnd || 0),
@@ -77,6 +121,14 @@ export function getProductsByCategory(category) {
   }
 
   return getAllProducts().filter((product) => product.category === category);
+}
+
+export function getCategoryBySlug(slug) {
+  const decodedSlug = decodeURIComponent(slug || "").toLowerCase();
+
+  return getProductCategories().find((category) => {
+    return category.toLowerCase() === decodedSlug || getCategorySlug(category) === decodedSlug;
+  });
 }
 
 export function getFeaturedProducts() {

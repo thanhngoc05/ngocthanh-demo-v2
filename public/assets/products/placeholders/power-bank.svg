@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-label="Power bank placeholder">
+  <rect width="640" height="640" rx="48" fill="#f8fcff"/>
+  <circle cx="494" cy="488" r="100" fill="#0ea5e9" opacity=".12"/>
+  <rect x="178" y="142" width="284" height="396" rx="42" fill="#0f172a"/>
+  <rect x="214" y="192" width="212" height="286" rx="24" fill="#ecfeff"/>
+  <path d="M274 236h92M274 280h128" stroke="#0284c7" stroke-width="18" stroke-linecap="round"/>
+  <path d="M320 334l-34 64h42l-24 60 68-86h-48l30-38Z" fill="#f97316"/>
+  <circle cx="258" cy="506" r="10" fill="#22d3ee"/><circle cx="300" cy="506" r="10" fill="#22d3ee"/><circle cx="342" cy="506" r="10" fill="#22d3ee"/>
+</svg>

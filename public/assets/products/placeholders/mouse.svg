@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-label="Mouse placeholder">
+  <rect width="640" height="640" rx="48" fill="#f8fcff"/>
+  <circle cx="142" cy="498" r="96" fill="#22d3ee" opacity=".14"/>
+  <path d="M320 112c88 0 150 78 150 190v66c0 104-62 168-150 168s-150-64-150-168v-66c0-112 62-190 150-190Z" fill="#0f172a"/>
+  <path d="M320 138v112" stroke="#22d3ee" stroke-width="18" stroke-linecap="round"/>
+  <rect x="306" y="160" width="28" height="74" rx="14" fill="#f97316"/>
+  <path d="M220 322h240" stroke="#ecfeff" stroke-width="18" stroke-linecap="round"/>
+</svg>

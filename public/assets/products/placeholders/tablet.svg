@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-label="Tablet placeholder">
+  <rect width="640" height="640" rx="48" fill="#f8fcff"/>
+  <circle cx="142" cy="506" r="92" fill="#0ea5e9" opacity=".12"/>
+  <rect x="174" y="104" width="292" height="432" rx="34" fill="#0f172a"/>
+  <rect x="202" y="140" width="236" height="376" rx="18" fill="#ecfeff"/>
+  <path d="M242 244h160M242 296h126M242 348h178" stroke="#0284c7" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="320" cy="492" r="10" fill="#22d3ee"/>
+  <path d="M468 190l48-34M486 238l62 4" stroke="#f97316" stroke-width="15" stroke-linecap="round"/>
+</svg>

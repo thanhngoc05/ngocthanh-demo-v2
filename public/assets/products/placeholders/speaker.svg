@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-label="Speaker placeholder">
+  <rect width="640" height="640" rx="48" fill="#f8fcff"/>
+  <circle cx="134" cy="498" r="92" fill="#22d3ee" opacity=".14"/>
+  <rect x="202" y="116" width="236" height="424" rx="48" fill="#0f172a"/>
+  <circle cx="320" cy="254" r="78" fill="#ecfeff"/>
+  <circle cx="320" cy="254" r="36" fill="#0284c7"/>
+  <circle cx="320" cy="414" r="84" fill="#ecfeff"/>
+  <circle cx="320" cy="414" r="46" fill="#f97316"/>
+  <path d="M246 154h108" stroke="#22d3ee" stroke-width="16" stroke-linecap="round"/>
+</svg>

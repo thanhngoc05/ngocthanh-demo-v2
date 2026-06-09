@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-label="Smartwatch placeholder">
+  <rect width="640" height="640" rx="48" fill="#f8fcff"/>
+  <circle cx="494" cy="492" r="100" fill="#0ea5e9" opacity=".12"/>
+  <path d="M248 92h144l18 114H230Z" fill="#0284c7"/>
+  <path d="M230 434h180l-18 114H248Z" fill="#0284c7"/>
+  <rect x="204" y="178" width="232" height="284" rx="56" fill="#0f172a"/>
+  <rect x="238" y="214" width="164" height="212" rx="34" fill="#ecfeff"/>
+  <path d="M282 300h76M282 346h46" stroke="#22d3ee" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="368" cy="352" r="16" fill="#f97316"/>
+</svg>

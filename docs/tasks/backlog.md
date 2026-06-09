@@ -10,21 +10,25 @@
 - Product detail page
 - Cart and checkout demo
 - Customer auth
+- Staff login entry
 - Build QA for completed routes
+- Dynamic params, hydration, and product placeholder fixes
+- README and deployment docs
 
 ## in_progress
-- Final QA docs update
+- Deployment/Git phase
 
 ## todo
-- Staff auth and staff portal
+- Full staff auth and staff portal
 - Staff product management
 - Staff inventory management
 - Staff order management
 - Categories, brands, banners
 - Staff users and audit logs
 - Policy/support pages
-- README and deployment docs
-- Deployment/Git phase
+- Resolve npm audit moderate vulnerabilities without changing stack
+- Vercel deployment after account/project access is available
+- Domain/DNS configuration after domain access is available
 
 ## blocked
 - None

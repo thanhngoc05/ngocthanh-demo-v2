@@ -5,8 +5,9 @@ import {
 import { ProductGrid } from "@/components/ProductGrid";
 import { FilterSidebar } from "@/components/FilterSidebar";
 
-export default function SearchPage({ searchParams }) {
-  const { q = "", brand = null, sort = "relevance" } = searchParams;
+export default async function SearchPage({ searchParams }) {
+  const resolvedSearchParams = searchParams ? await searchParams : {};
+  const { q = "", brand = null, sort = "relevance" } = resolvedSearchParams;
 
   const products = filterAndSortProducts({
     query: q,
@@ -33,7 +34,7 @@ export default function SearchPage({ searchParams }) {
             brands={brands} 
             currentBrand={brand} 
             currentSort={sort} 
-            searchParams={searchParams}
+            searchParams={resolvedSearchParams}
             basePath="/search"
           />
         </aside>

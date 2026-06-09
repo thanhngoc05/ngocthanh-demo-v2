@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-label="Camera placeholder">
+  <rect width="640" height="640" rx="48" fill="#f8fcff"/>
+  <circle cx="506" cy="500" r="100" fill="#22d3ee" opacity=".14"/>
+  <path d="M210 188h110l34 48h100c34 0 62 28 62 62v154c0 34-28 62-62 62H186c-34 0-62-28-62-62V298c0-34 28-62 62-62h24Z" fill="#0f172a"/>
+  <circle cx="326" cy="374" r="96" fill="#ecfeff"/>
+  <circle cx="326" cy="374" r="56" fill="#0284c7"/>
+  <circle cx="326" cy="374" r="24" fill="#22d3ee"/>
+  <rect x="430" y="278" width="52" height="34" rx="12" fill="#f97316"/>
+</svg>

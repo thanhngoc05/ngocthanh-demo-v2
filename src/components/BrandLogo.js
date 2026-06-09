@@ -14,16 +14,18 @@ export function BrandLogo({
   showText = false,
 }) {
   const isIcon = variant === "icon";
+  const width = isIcon ? 40 : 120;
+  const height = 40;
 
   return (
     <Link href={href} className={`inline-flex items-center ${className}`}>
       <Image
         src={isIcon ? "/assets/brand/logo-icon.png" : "/assets/brand/logo-horizontal.png"}
         alt="NgocThanh"
-        width={isIcon ? 40 : 176}
-        height={isIcon ? 40 : 40}
+        width={width}
+        height={height}
         priority={priority}
-        className={isIcon ? "h-10 w-10 rounded-xl" : "h-10 w-auto"}
+        className={isIcon ? "rounded-xl" : ""}
       />
       {showText ? <span className="sr-only">NgocThanh</span> : null}
     </Link>

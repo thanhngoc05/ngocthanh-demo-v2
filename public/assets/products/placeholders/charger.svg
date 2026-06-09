@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-label="Charger placeholder">
+  <rect width="640" height="640" rx="48" fill="#f8fcff"/>
+  <circle cx="504" cy="120" r="86" fill="#0ea5e9" opacity=".13"/>
+  <rect x="210" y="172" width="220" height="310" rx="36" fill="#0f172a"/>
+  <rect x="244" y="220" width="152" height="210" rx="20" fill="#ecfeff"/>
+  <path d="M282 134v72M358 134v72" stroke="#0284c7" stroke-width="24" stroke-linecap="round"/>
+  <path d="M320 260l-36 72h44l-28 70 72-94h-48l34-48Z" fill="#f97316"/>
+  <path d="M230 510h180" stroke="#22d3ee" stroke-width="18" stroke-linecap="round"/>
+</svg>

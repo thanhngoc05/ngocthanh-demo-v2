@@ -1,4 +1,5 @@
 import { 
+  getCategorySlug,
   getProductBySlug, 
   getProductsByCategory 
 } from "@/lib/product-data";
@@ -7,8 +8,8 @@ import { ProductGrid } from "@/components/ProductGrid";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export default function ProductDetailPage({ params }) {
-  const { slug } = params;
+export default async function ProductDetailPage({ params }) {
+  const { slug } = await params;
   const product = getProductBySlug(slug);
 
   if (!product) {
@@ -25,7 +26,7 @@ export default function ProductDetailPage({ params }) {
       <nav className="mb-6 flex items-center gap-2 text-sm text-slate-500">
         <Link href="/" className="hover:text-sky-600">Trang chủ</Link>
         <span>/</span>
-        <Link href={`/danh-muc/${encodeURIComponent(product.category.toLowerCase())}`} className="hover:text-sky-600">
+        <Link href={`/danh-muc/${getCategorySlug(product.category)}`} className="hover:text-sky-600">
           {product.category}
         </Link>
         <span>/</span>
@@ -178,7 +179,7 @@ export default function ProductDetailPage({ params }) {
         <div className="mb-8 flex items-center justify-between">
           <h2 className="text-2xl font-bold text-slate-900">Sản phẩm tương tự</h2>
           <Link 
-            href={`/danh-muc/${encodeURIComponent(product.category.toLowerCase())}`} 
+            href={`/danh-muc/${getCategorySlug(product.category)}`}
             className="text-sm font-semibold text-sky-700 hover:text-sky-800"
           >
             Xem tất cả {product.category} →

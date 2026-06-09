@@ -3,7 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 export function ProductGallery({ images = [], alt = "Product image" }) {
-  const [mainImage, setMainImage] = useState(images[0] || "/assets/products/placeholder/product-placeholder.png");
+  const [mainImage, setMainImage] = useState(images[0] || "/assets/products/placeholders/default.svg");
 
   return (
     <div className="flex flex-col gap-4">
@@ -12,6 +12,7 @@ export function ProductGallery({ images = [], alt = "Product image" }) {
           src={mainImage}
           alt={alt}
           fill
+          sizes="(min-width: 1024px) 50vw, 100vw"
           className="object-contain p-4 transition-opacity duration-300"
           priority
         />
@@ -31,6 +32,7 @@ export function ProductGallery({ images = [], alt = "Product image" }) {
                 src={img}
                 alt={`${alt} ${idx + 1}`}
                 fill
+                sizes="80px"
                 className="object-cover"
               />
             </button>

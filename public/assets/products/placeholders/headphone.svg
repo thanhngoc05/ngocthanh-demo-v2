@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-label="Headphone placeholder">
+  <rect width="640" height="640" rx="48" fill="#f8fcff"/>
+  <circle cx="486" cy="468" r="98" fill="#22d3ee" opacity=".14"/>
+  <path d="M168 330c0-112 84-202 152-202s152 90 152 202" fill="none" stroke="#0f172a" stroke-width="34" stroke-linecap="round"/>
+  <rect x="122" y="314" width="98" height="160" rx="34" fill="#0284c7"/>
+  <rect x="420" y="314" width="98" height="160" rx="34" fill="#0284c7"/>
+  <path d="M172 354v82M470 354v82" stroke="#ecfeff" stroke-width="18" stroke-linecap="round"/>
+  <path d="M276 486h88" stroke="#f97316" stroke-width="18" stroke-linecap="round"/>
+</svg>

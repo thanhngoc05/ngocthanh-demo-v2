@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-label="Phone placeholder">
+  <rect width="640" height="640" rx="48" fill="#f8fcff"/>
+  <circle cx="126" cy="118" r="78" fill="#22d3ee" opacity=".16"/>
+  <circle cx="520" cy="512" r="104" fill="#0ea5e9" opacity=".13"/>
+  <rect x="222" y="94" width="196" height="448" rx="34" fill="#0f172a"/>
+  <rect x="242" y="130" width="156" height="348" rx="18" fill="#e0faff"/>
+  <path d="M270 356h100M270 388h74" stroke="#0284c7" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="320" cy="507" r="13" fill="#22d3ee"/>
+  <path d="M420 158l60-36M437 204l72-6" stroke="#f97316" stroke-width="16" stroke-linecap="round"/>
+</svg>
